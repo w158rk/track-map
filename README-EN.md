@@ -22,23 +22,23 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/w158rk/trace-map">
+  <a href="https://github.com/w158rk/track-map">
     <img src="docs/images/logo.svg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">trace-map</h3>
+  <h3 align="center">track-map</h3>
 
   <p align="center">
     Trace your footprint in this world
     <br />
-    <!-- <a href="https://github.com/w158rk/trace-map"><strong>Explore the docs »</strong></a> -->
+    <!-- <a href="https://github.com/w158rk/track-map"><strong>Explore the docs »</strong></a> -->
     <!-- <br /> -->
     <br />
     <a>View Demo</a>
     ·
-    <a href="https://github.com/w158rk/trace-map/issues">Report Bug</a>
+    <a href="https://github.com/w158rk/track-map/issues">Report Bug</a>
     ·
-    <a href="https://github.com/w158rk/trace-map/issues">Request Feature</a>
+    <a href="https://github.com/w158rk/track-map/issues">Request Feature</a>
   </p>
 </p>
 
@@ -114,7 +114,7 @@ Clone the repository and enjoy.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/w158rk/trace-map.git
+   git clone https://github.com/w158rk/track-map.git
    ```
 2. Install NPM packages
    ```sh
@@ -166,7 +166,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 w158rk - wrk15835@outlook.com
 
-Project Link: [https://github.com/w158rk/trace-map](https://github.com/w158rk/trace-map)
+Project Link: [https://github.com/w158rk/track-map](https://github.com/w158rk/track-map)
 
 
 
@@ -187,16 +187,16 @@ Project Link: [https://github.com/w158rk/trace-map](https://github.com/w158rk/tr
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/w158rk/trace-map.svg?style=for-the-badge
-[contributors-url]: https://github.com/w158rk/trace-map/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/w158rk/trace-map.svg?style=for-the-badge
-[forks-url]: https://github.com/w158rk/trace-map/network/members
-[stars-shield]: https://img.shields.io/github/stars/w158rk/trace-map.svg?style=for-the-badge
-[stars-url]: https://github.com/w158rk/trace-map/stargazers
-[issues-shield]: https://img.shields.io/github/issues/w158rk/trace-map.svg?style=for-the-badge
-[issues-url]: https://github.com/w158rk/trace-map/issues
-[license-shield]: https://img.shields.io/github/license/w158rk/trace-map.svg?style=for-the-badge
-[license-url]: https://github.com/w158rk/trace-map/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/w158rk/track-map.svg?style=for-the-badge
+[contributors-url]: https://github.com/w158rk/track-map/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/w158rk/track-map.svg?style=for-the-badge
+[forks-url]: https://github.com/w158rk/track-map/network/members
+[stars-shield]: https://img.shields.io/github/stars/w158rk/track-map.svg?style=for-the-badge
+[stars-url]: https://github.com/w158rk/track-map/stargazers
+[issues-shield]: https://img.shields.io/github/issues/w158rk/track-map.svg?style=for-the-badge
+[issues-url]: https://github.com/w158rk/track-map/issues
+[license-shield]: https://img.shields.io/github/license/w158rk/track-map.svg?style=for-the-badge
+[license-url]: https://github.com/w158rk/track-map/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/ruikai-wang/
 [product-screenshot]: docs/images/screenshot.png
