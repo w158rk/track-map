@@ -47,7 +47,7 @@ class Visitor extends TraceVisitor{
         if (note!==null)
             obj.note = note.getText();
         if (color!==null)
-            obj.color = color.getText();
+            obj.color = '#' + color.getText();
         
         if(!locations.hasOwnProperty(obj.from)) {
             console.error(`cannot find the location of ${obj.from}`);

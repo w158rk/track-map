@@ -5,6 +5,7 @@
     import echarts from "echarts";
     import axios from 'axios';
     import {loadInnerLocations, parse} from '../parser';
+    import {split} from '../color';
     import {movingLineSeriesBase, staticLineSeriesBase, startScatterSeriesBase, endScatterSeriesBase, defaultChartOption, WORLD_MAP_URL, CITY_MAP_URL} from '../constants';
 
     export default {
@@ -50,22 +51,34 @@
                 // var myChart = echarts.init(document.getElementById('mapChart'), null, {renderer: 'svg'});
 
                 var series = [];
-                console.log(this.mapData);
-                var movingLineSeries = Object.assign({}, movingLineSeriesBase, {
-                    data: this.lineData(this.mapData)
-                });
-                var staticLineSeries = Object.assign({}, staticLineSeriesBase, {
-                    data: this.lineData(this.mapData)
-                });
-                var startScatterSeries = Object.assign({}, startScatterSeriesBase, {
-                    data: this.scatterData(this.mapData)
-                });
-                var endScatterSeries = Object.assign({}, endScatterSeriesBase, {
-                    data: this.scatterData(this.mapData)
-                });
-                
-                series.push(movingLineSeries, staticLineSeries, 
-                    startScatterSeries, endScatterSeries);
+
+                var mapData = split(this.mapData);
+                for (let [color, records] of Object.entries(mapData)) {
+                    var movingLineSeries = Object.assign({}, movingLineSeriesBase, {
+                        data: this.lineData(records),
+                    });
+                    var staticLineSeries = Object.assign({}, staticLineSeriesBase, {
+                        data: this.lineData(records),
+                        lineStyle: {
+                            normal: {
+                                color: color,
+                                width: 2,
+                                opacity: 0.4,
+                                curveness: 0.2
+                            }
+                        },
+                    });
+                    var startScatterSeries = Object.assign({}, startScatterSeriesBase, {
+                        data: this.scatterData(records)
+                    });
+                    var endScatterSeries = Object.assign({}, endScatterSeriesBase, {
+                        data: this.scatterData(records)
+                    });
+                    
+                    series.push(movingLineSeries, staticLineSeries, 
+                        startScatterSeries, endScatterSeries);
+                }
+                console.log(mapData);
                 
                 myChart.setOption(Object.assign({}, defaultChartOption, {
                     series: series
@@ -82,7 +95,8 @@
                         fromName: el.from,
                         toName: el.to,
                         coords: [fromData, toData],
-                        value: el.num
+                        value: el.num,
+                        str: el.from + ' - ' + el.to + ' : ' + el.num
                     });
                 });
                 return result;
@@ -95,19 +109,21 @@
                     var fromCord = `${el.from_longitude},${el.from_latitude},30`.split(',');
                     
                     // 仅显示英文
-                    if(el.to.search(/[a-z]/)>0) {
-                        result.push({
-                            name: el.to,
-                            value: toCord
-                        });
-                    }
+                    // if(el.to.search(/[a-z]/)>0) {
+                    result.push({
+                        name: el.to,
+                        value: toCord,
+                        str: el.to
+                    });
+                    // }
 
-                    if(el.from.search(/[a-z]/)>0) {
-                        result.push({
-                            name: el.to,
-                            value: fromCord
-                        });
-                    }
+                    // if(el.from.search(/[a-z]/)>0) {
+                    result.push({
+                        name: el.from,
+                        value: fromCord,
+                        str: el.from
+                    });
+                    // }
                 });
 
                 return result;

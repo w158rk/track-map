@@ -7,7 +7,8 @@ export const defaultOption = {
     'hoverAreaColor': '#16467B',
     'lineColor': 'rgb(192, 158, 255)',
     'trailColor': '#fff',
-    'endColor': 'rgb(192, 158, 255)',
+    'endColor': '#ECF0F1',
+    'movingSpeed': 10
 }
 
 export const defaultChartOption = {
@@ -17,8 +18,8 @@ export const defaultChartOption = {
         left: 20,
         top: 10,
         textStyle: {
-            fontSize: '5px',
-            fontFamily: 'PingFangSC-Regular',
+            fontSize: '20px',
+            fontFamily: 'PingFangSC-Light',
             fontWeight: 'lighter',
             color: defaultOption.titleColor
         }
@@ -37,7 +38,7 @@ export const defaultChartOption = {
         trigger: 'item',
         formatter: (param) => {
             var data = param.data;
-            return data.fromName + ' - ' + data.toName + ' : ' + data.value;
+            return data.str;
         }
     },
     legend: {
@@ -48,11 +49,11 @@ export const defaultChartOption = {
     },
     geo: {
         map: 'world',
-        // center: [115.97, 29.71],
         label: {
             emphasis: {
-                show: false
-            }
+                show: true,
+                color: '#fff'
+            },
         },
         roam: true,
         itemStyle: {
@@ -73,7 +74,7 @@ export const movingLineSeriesBase = {
     zlevel: 1,
     effect: {
         show: true,
-        period: 6,
+        constantSpeed: defaultOption.movingSpeed,
         trailLength: 0.7,
         color: defaultOption.trailColor,
         symbolSize: 3
@@ -92,7 +93,7 @@ export const staticLineSeriesBase = {
     zlevel: 2,
     effect: {
         show: true,
-        period: 6,
+        constantSpeed: defaultOption.movingSpeed,
         trailLength: 0,
         symbolSize: 5
     },
@@ -116,13 +117,19 @@ export const startScatterSeriesBase = {
     },
     label: {
         normal: {
-            show: true,
+            show: false,
+            fontFamily: 'PingFangSC-Light',
             position: 'right',
             formatter: '{b}'
         }
     },
     symbolSize: function (val) {
-        return val[2] / 8;
+        return val[2] / 12;
+    },
+    itemStyle: {
+        normal: {
+            color: defaultOption.endColor
+        }
     },
 };
 
@@ -136,13 +143,15 @@ export const endScatterSeriesBase = {
     },
     label: {
         normal: {
-            show: true,
+            show: false,
+            fontFamily: 'PingFangSC-Light',
+            fontWeight: 'lighter',
             position: 'right',
             formatter: '{b}'
         }
     },
     symbolSize: function (val) {
-        return val[2] / 8;
+        return val[2] / 10;
     },
     itemStyle: {
         normal: {
